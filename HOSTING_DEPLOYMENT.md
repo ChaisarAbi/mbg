@@ -99,7 +99,7 @@
 
 2. **Install PHP & Extensions:**
    ```bash
-   sudo apt install php8.1 php8.1-fpm php8.1-mysql php8.1-mbstring php8.1-xml php8.1-bcmath php8.1-curl php8.1-zip
+   sudo apt install php8.3 php8.3-fpm php8.3-mysql php8.3-mbstring php8.3-xml php8.3-bcmath php8.3-curl php8.3-zip
    ```
 
 3. **Install Database:**
@@ -157,7 +157,7 @@
 
 6. **Set Permissions:**
    ```bash
-   sudo chown -R www-data:www-data /var/www/sistem-pengajuan-dapur-mbg
+   sudo chown -R abi:abi /var/www/sistem-pengajuan-dapur-mbg
    sudo chmod -R 755 storage
    sudo chmod -R 755 bootstrap/cache
    ```
@@ -167,7 +167,7 @@
 Buat file `/etc/nginx/sites-available/mbg`:
 ```nginx
 server {
-    listen 80;
+    listen 3500;
     server_name your-domain.com;
     root /var/www/sistem-pengajuan-dapur-mbg/public;
 
@@ -188,7 +188,7 @@ server {
     error_page 404 /index.php;
 
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         include fastcgi_params;
     }

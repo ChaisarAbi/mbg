@@ -27,13 +27,13 @@
 sudo apt update && sudo apt upgrade -y
 
 # Install PHP and extensions
-sudo apt install -y php8.2 php8.2-fpm php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip php8.2-gd php8.2-bcmath
+sudo apt install -y php8.3 php8.3-fpm php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip php8.3-gd php8.3-bcmath
 
 # Install MySQL/MariaDB
 sudo apt install -y mysql-server
 
 # Install Node.js and npm
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # Install Composer
@@ -48,7 +48,7 @@ sudo apt install -y git
 ### Configure PHP-FPM
 ```bash
 # Edit PHP-FPM configuration
-sudo nano /etc/php/8.2/fpm/php.ini
+sudo nano /etc/php/8.3/fpm/php.ini
 
 # Update these values:
 memory_limit = 256M
@@ -57,7 +57,7 @@ post_max_size = 64M
 max_execution_time = 300
 
 # Restart PHP-FPM
-sudo systemctl restart php8.2-fpm
+sudo systemctl restart php8.3-fpm
 ```
 
 ## Step 2: Database Setup

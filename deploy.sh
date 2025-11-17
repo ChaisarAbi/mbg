@@ -64,10 +64,12 @@ install_dependencies() {
     composer install --no-dev --optimize-autoloader
     
     log "Installing Node.js dependencies..."
+    npm install
+    npm run build
     npm ci --only=production
     
     log "Building assets..."
-    npm run build
+   
     
     log "Dependencies installed successfully"
 }
@@ -99,7 +101,7 @@ set_permissions() {
     cd $APP_DIR
     
     # Set ownership to www-data
-    chown -R www-data:www-data .
+    chown -R abi:abi .
     
     # Set directory permissions
     find . -type d -exec chmod 755 {} \;
@@ -117,7 +119,7 @@ set_permissions() {
 # Restart services
 restart_services() {
     log "Restarting PHP-FPM..."
-    systemctl restart php8.2-fpm
+    systemctl restart php8.3-fpm
     
     log "PHP-FPM restarted successfully"
 }
