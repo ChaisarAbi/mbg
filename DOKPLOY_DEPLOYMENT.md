@@ -27,7 +27,20 @@ Pastikan repository GitHub sudah memiliki file-file berikut:
 4. Connect repository GitHub Anda
 5. Pilih branch yang akan di-deploy (biasanya `main` atau `master`)
 
-#### B. Environment Variables
+#### B. Build Settings - Pilih Salah Satu
+
+**Opsi 1: Single Container (Recommended untuk Dokploy)**
+- **Build Method**: Dockerfile
+- **Dockerfile Path**: `Dockerfile.dokploy`
+- **Build Context**: `.` (root directory)
+- **Port**: `80`
+
+**Opsi 2: Multi-Container (Advanced)**
+- **Build Method**: Docker Compose
+- **Docker Compose File**: `docker-compose.dokploy.yml`
+- **Build Context**: `.` (root directory)
+
+#### C. Environment Variables
 Set environment variables berikut di Dokploy:
 
 ```bash
