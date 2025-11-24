@@ -56,6 +56,10 @@ RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 /var/www/storage \
     && chmod -R 775 /var/www/bootstrap/cache
 
+# Copy .env file if exists, otherwise create from example
+RUN if [ -f ".env.dokploy" ]; then cp .env.dokploy .env; fi
+RUN if [ ! -f ".env" ] && [ -f ".env.example" ]; then cp .env.example .env; fi
+
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
